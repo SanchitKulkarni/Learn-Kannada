@@ -1,0 +1,414 @@
+﻿@using WebMatrix.Data;
+@{
+    if (Session["user"] == null)
+    {
+        Response.Redirect("Login.aspx");
+    }
+    var db = Database.Open("RegConnectionString");
+    var query1 = "Select * from Colors";
+    var query2 = "Select * from fruit";
+    var query3 = "Select * from Vegetables";
+    var query4 = "Select * from Numbers";
+    var query5 = "Select * from Relationships";
+    var query6 = "Select * from Directions";
+    var query7 = "Select * from Enquiry";
+    var query8 = "Select * from Greetings";
+    var query9 = "Select * from Starters";
+    var query10 = "Select * from TalkingToVendors";
+    var query11 = "Select * from TalkToCabDrivers";
+    var query12 = "Select * from TalkingToMaid";
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="scripts/jquery-1.9.1.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <style>
+    body {
+    background-size: 100% auto ;
+    }
+    </style>
+</head>
+<body background="imgback.jpg">
+    <div class="row">
+        <!-- <div class="col-sm-1"></div>-->
+        <div class="col-sm-12">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#colors">Colors</a></li>
+                <li><a data-toggle="tab" href="#menu1">Fruits</a></li>
+                <li><a data-toggle="tab" href="#menu2">Vegetables</a></li>
+                <li><a data-toggle="tab" href="#menu3">Numbers</a></li>
+                <li><a data-toggle="tab" href="#menu4">Relationships</a></li>
+                <li><a data-toggle="tab" href="#menu5">Directions</a></li>
+                <li><a data-toggle="tab" href="#menu6">Enquiry</a></li>
+                <li><a data-toggle="tab" href="#menu7">Greetings</a></li>
+                <li><a data-toggle="tab" href="#menu8">Starters</a></li>
+                <li><a data-toggle="tab" href="#menu9">Talking to Vendors</a></li>
+                <li><a data-toggle="tab" href="#menu10">Talk to Cab Driver</a></li>
+                <li><a data-toggle="tab" href="#menu11">Talking to Maid</a></li>
+                <li><a href="~/Signout.aspx">Sign Out</a></li>
+
+            </ul>
+
+            <div class="tab-content">
+                <div id="colors" class="tab-pane fade in active">
+                    <div class="container">
+                        <h2>Colors</h2>
+                        <p>Colors in English and Kannada and their Translation</p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Kannada</th>
+                                    <th>English</th>
+                                    <th>Pronunciation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var row in db.Query(query1))
+                            {
+                                <tr>
+                                    <td>@row.Kannada</td>
+                                    <td>@row.English</td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="@row.src" type="audio/wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="menu1" class="tab-pane fade">
+                    <div class="container">
+                        <h2>Fuits</h2>
+                        <p>Fruits in English and Kannada and their Translation</p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Kannada</th>
+                                    <th>English</th>
+                                    <th>Pronunciation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var row in db.Query(query2))
+                                {
+                                    <tr>
+                                        <td>@row.Kannada</td>
+                                        <td>@row.English</td>
+                                        <td>
+                                            <audio controls>
+                                                <source src="@row.src" type="audio/wav">
+                                            </audio>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="menu2" class="tab-pane fade">
+                    <div class="container">
+                        <h2>Vegetables</h2>
+                        <p>Vegetables in English and Kannada and their Translation</p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Kannada</th>
+                                    <th>English</th>
+                                    <th>Pronunciation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var row in db.Query(query3))
+                                {
+                                    <tr>
+                                        <td>@row.Kannada</td>
+                                        <td>@row.English</td>
+                                        <td>
+                                            <audio controls>
+                                                <source src="@row.src" type="audio/wav">
+                                            </audio>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="menu3" class="tab-pane fade">
+                    <div class="container">
+                        <h2>Numbers</h2>
+                        <p>Numbers in English and Kannada and their Translation</p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Kannada</th>
+                                    <th>English</th>
+                                    <th>Pronunciation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var row in db.Query(query4))
+                                {
+                                    <tr>
+                                        <td>@row.Kannada</td>
+                                        <td>@row.English</td>
+                                        <td>
+                                            <audio controls>
+                                                <source src="@row.src" type="audio/wav">
+                                            </audio>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="menu4" class="tab-pane fade">
+                    <div class="container">
+                        <h2>Relationships</h2>
+                        <p>Relationships in English and Kannada and their Translation</p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Kannada</th>
+                                    <th>English</th>
+                                    <th>Pronunciation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var row in db.Query(query5))
+                                {
+                                    <tr>
+                                        <td>@row.Kannada</td>
+                                        <td>@row.English</td>
+                                        <td>
+                                            <audio controls>
+                                                <source src="@row.src" type="audio/wav">
+                                            </audio>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="menu5" class="tab-pane fade">
+                    <div class="container">
+                        <h2>Directions</h2>
+                        <p>Directions in English and Kannada and their Translation</p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Kannada</th>
+                                    <th>English</th>
+                                    <th>Pronunciation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var row in db.Query(query6))
+                                {
+                                    <tr>
+                                        <td>@row.Kannada</td>
+                                        <td>@row.English</td>
+                                        <td>
+                                            <audio controls>
+                                                <source src="@row.src" type="audio/wav">
+                                            </audio>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="menu6" class="tab-pane fade">
+                    <div class="container">
+                        <h2>Enquiry</h2>
+                        <p>Enquiry in English and Kannada and their Translation</p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Kannada</th>
+                                    <th>English</th>
+                                    <th>Pronunciation</th>
+                                </tr>
+                            </thead>
+                            @foreach (var row in db.Query(query7))
+                            {
+                                <tr>
+                                    <td>@row.Kannada</td>
+                                    <td>@row.English</td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="@row.src" type="audio/wav">
+                                        </audio>
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="menu7" class="tab-pane fade">
+                    <div class="container">
+                        <h2>Greetings</h2>
+                        <p>Greetings in English and Kannada and their Translation</p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Kannada</th>
+                                    <th>English</th>
+                                    <th>Pronunciation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var row in db.Query(query8))
+                                {
+                                    <tr>
+                                        <td>@row.Kannada</td>
+                                        <td>@row.English</td>
+                                        <td>
+                                            <audio controls>
+                                                <source src="@row.src" type="audio/wav">
+                                            </audio>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="menu8" class="tab-pane fade">
+                    <div class="container">
+                        <h2>Starters</h2>
+                        <p>Starters in English and Kannada and their Translation</p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Kannada</th>
+                                    <th>English</th>
+                                    <th>Pronunciation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var row in db.Query(query9))
+                                {
+                                    <tr>
+                                        <td>@row.Kannada</td>
+                                        <td>@row.English</td>
+                                        <td>
+                                            <audio controls>
+                                                <source src="@row.src" type="audio/wav">
+                                            </audio>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="menu9" class="tab-pane fade">
+                    <div class="container">
+                        <h2>Talking to Vendors</h2>
+                        <p>Talking to Vendors in English and Kannada and their Translation</p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Kannada</th>
+                                    <th>English</th>
+                                    <th>Pronunciation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var row in db.Query(query10))
+                                {
+                                    <tr>
+                                        <td>@row.Kannada</td>
+                                        <td>@row.English</td>
+                                        <td>
+                                            <audio controls>
+                                                <source src="@row.src" type="audio/wav">
+                                            </audio>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="menu10" class="tab-pane fade">
+                    <div class="container">
+                        <h2>Talking to Cab Driver</h2>
+                        <p>Talking to Cab Driver in English and Kannada and their Translation</p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Kannada</th>
+                                    <th>English</th>
+                                    <th>Pronunciation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var row in db.Query(query11))
+                                {
+                                    <tr>
+                                        <td>@row.Kannada</td>
+                                        <td>@row.English</td>
+                                        <td>
+                                            <audio controls>
+                                                <source src="@row.src" type="audio/wav">
+                                            </audio>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="menu11" class="tab-pane fade">
+                    <div class="container">
+                        <h2>Talking to Maid</h2>
+                        <p>Talking to Maid in English and Kannada and their Translation</p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Kannada</th>
+                                    <th>English</th>
+                                    <th>Pronunciation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var row in db.Query(query12))
+                                {
+                                    <tr>
+                                        <td>@row.Kannada</td>
+                                        <td>@row.English</td>
+                                        <td>
+                                            <audio controls>
+                                                <source src="@row.src" type="audio/wav">
+                                            </audio>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="col-sm-1"></div>-->
+
+
+</body>
+</html>
